@@ -1,18 +1,21 @@
 import { Header } from "@/components/header";
-import { HeroSection } from "@/components/hero-section";
+import { CategoryHeader } from "@/components/category-header";
+import { ProductList } from "@/components/product-list";
 import { CategoryGrid } from "@/components/category-grid";
-import { ProductShowcase } from "@/components/product-showcase";
 import { AboutSection } from "@/components/about-section";
 import { Footer } from "@/components/footer";
+import { getProductsByCategory } from "@/lib/utils/products";
 
-export default function HomePage() {
+export default function SpeakersPage() {
+  const speakers = getProductsByCategory("speakers");
+
   return (
     <div className="min-h-screen bg-white">
       <Header />
       <main>
-        <HeroSection />
+        <CategoryHeader title="SPEAKERS" />
+        <ProductList products={speakers} />
         <CategoryGrid />
-        <ProductShowcase />
         <AboutSection />
       </main>
       <Footer />
