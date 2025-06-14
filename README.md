@@ -34,7 +34,7 @@ A premium audio equipment e-commerce website built with modern web technologies,
 
 ### Mobile View
 
-![Mobile Homepage](/images/screenshots/mobile.jpg)
+![Mobile Homepage](./public/images/screenshots/mobile.png)
 
 ## 🛠️ Tech Stack
 
