@@ -51,7 +51,7 @@ export function CheckoutForm() {
         </p>
         <Button
           asChild
-          className="bg-orange-500 hover:bg-orange-600 text-white"
+          className="bg-orange-600 hover:bg-orange-500 text-white"
         >
           <Link href="/">Continue Shopping</Link>
         </Button>

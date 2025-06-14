@@ -1,3 +1,5 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { getProductBySlug } from "@/lib/utils/products";
@@ -9,8 +11,15 @@ export function ProductShowcase() {
   const zx7Speaker = getProductBySlug("zx7-speaker");
   const yx1Earphones = getProductBySlug("yx1-earphones");
 
+  // Debug logging
+  console.log("ProductShowcase Debug:", {
+    zx9Speaker: zx9Speaker?.slug,
+    zx7Speaker: zx7Speaker?.slug,
+    yx1Earphones: yx1Earphones?.slug,
+  });
+
   return (
-    <section className="py-16 md:py-24 p-4">
+    <section className="py-16 md:py-24">
       <div className="container mx-auto px-4 space-y-8">
         {/* ZX9 Speaker - Orange Section */}
         {zx9Speaker && (
@@ -41,7 +50,7 @@ export function ProductShowcase() {
                 <Button
                   asChild
                   variant="outline"
-                  className="bg-transparent border-white text-white hover:bg-white hover:text-orange-500 px-8 py-3"
+                  className="bg-transparent border-white text-white cursor-pointer hover:bg-white hover:text-orange-500 px-8 py-3"
                 >
                   <Link href={`/products/${zx9Speaker.slug}`}>SEE PRODUCT</Link>
                 </Button>

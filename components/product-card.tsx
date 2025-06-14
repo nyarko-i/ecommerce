@@ -52,7 +52,7 @@ export function ProductCard({
         </p>
         <Button
           asChild
-          className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 text-sm font-medium tracking-wider"
+          className="bg-orange-600 hover:bg-orange-500 cursor-pointer text-white px-8 py-3 text-sm font-medium tracking-wider"
         >
           <Link href={`/products/${product.slug}`}>SEE PRODUCT</Link>
         </Button>

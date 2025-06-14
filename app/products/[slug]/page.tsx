@@ -15,11 +15,30 @@ interface ProductPageProps {
   }>;
 }
 
-export function generateStaticParams() {
+// Generate static params for all products
+export async function generateStaticParams() {
   const products = getAllProducts();
+
   return products.map((product) => ({
     slug: product.slug,
   }));
+}
+
+// Generate metadata for each product
+export async function generateMetadata({ params }: ProductPageProps) {
+  const { slug } = await params;
+  const product = getProductBySlug(slug);
+
+  if (!product) {
+    return {
+      title: "Product Not Found - Audiophile",
+    };
+  }
+
+  return {
+    title: `${product.name} - Audiophile`,
+    description: product.description,
+  };
 }
 
 export default async function ProductPage({ params }: ProductPageProps) {

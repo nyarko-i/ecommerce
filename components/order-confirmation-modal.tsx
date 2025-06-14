@@ -132,7 +132,7 @@ export function OrderConfirmationModal({
           {/* Back to Home Button */}
           <Button
             asChild
-            className="w-full bg-orange-500 hover:bg-orange-600 text-white py-3 font-bold tracking-wider"
+            className="w-full bg-orange-600 hover:bg-orange-500 cursor-pointer text-white py-3 font-bold tracking-wider"
           >
             <Link href="/">BACK TO HOME</Link>
           </Button>

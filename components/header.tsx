@@ -68,7 +68,7 @@ export function Header() {
             <Button
               variant="ghost"
               size="icon"
-              className="text-white hover:bg-gray-800 relative"
+              className="text-white hover:bg-gray-800 hover:text-white relative cursor-pointer"
               onClick={() => setIsCartOpen(true)}
             >
               <ShoppingCart className="h-6 w-6" />

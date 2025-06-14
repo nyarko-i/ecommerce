@@ -39,7 +39,7 @@ export function ProductHero({ product }: ProductHeroProps) {
         <Button
           asChild
           variant="ghost"
-          className="mb-8 text-gray-600 hover:text-orange-500 p-0 h-auto font-medium"
+          className="mb-8 text-gray-600 cursor-pointer hover:text-orange-500 p-0 h-auto font-medium"
         >
           <Link href="/" className="flex items-center gap-2">
             <ChevronLeft className="h-4 w-4" />
@@ -89,7 +89,7 @@ export function ProductHero({ product }: ProductHeroProps) {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="h-12 w-12 hover:bg-gray-200"
+                  className="h-12 w-12 hover:bg-gray-200 cursor-pointer"
                   onClick={() => handleQuantityChange(-1)}
                   disabled={quantity <= 1 || isAddingToCart}
                 >
@@ -99,7 +99,7 @@ export function ProductHero({ product }: ProductHeroProps) {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="h-12 w-12 hover:bg-gray-200"
+                  className="h-12 w-12 hover:bg-gray-200 cursor-pointer"
                   onClick={() => handleQuantityChange(1)}
                   disabled={isAddingToCart}
                 >
@@ -111,7 +111,7 @@ export function ProductHero({ product }: ProductHeroProps) {
               <Button
                 onClick={handleAddToCart}
                 disabled={isAddingToCart}
-                className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 text-sm font-medium tracking-wider h-12 min-w-[140px]"
+                className="bg-orange-600 hover:bg-orange-500 cursor-pointer text-white px-8 py-3 text-sm font-medium tracking-wider h-12 min-w-[140px]"
               >
                 {isAddingToCart ? "ADDING..." : "ADD TO CART"}
               </Button>

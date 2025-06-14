@@ -42,7 +42,7 @@ export function CartModal({ isOpen, onClose }: CartModalProps) {
             <p className="text-gray-600 mb-4">Your cart is empty</p>
             <Button
               onClick={onClose}
-              className="bg-orange-500 hover:bg-orange-600 text-white"
+              className="bg-orange-500 hover:bg-orange-600 cursor-pointer text-white"
             >
               Continue Shopping
             </Button>
@@ -61,7 +61,7 @@ export function CartModal({ isOpen, onClose }: CartModalProps) {
             <Button
               variant="ghost"
               onClick={clearCart}
-              className="text-sm text-gray-600 hover:text-orange-500 underline p-0 h-auto font-normal"
+              className="text-sm text-gray-600 cursor-pointer hover:text-orange-500 underline p-0 h-auto font-normal"
             >
               Remove all
             </Button>
@@ -104,20 +104,20 @@ export function CartModal({ isOpen, onClose }: CartModalProps) {
                   <Button
                     variant="ghost"
                     size="icon"
-                    className="h-8 w-8 hover:bg-gray-200"
+                    className="h-8 w-8 hover:bg-gray-200 cursor-pointer"
                     onClick={() =>
                       handleQuantityChange(item.id, item.quantity - 1)
                     }
                   >
                     <Minus className="h-3 w-3" />
                   </Button>
-                  <span className="w-8 text-center text-sm font-bold">
+                  <span className="w-8 text-center text-sm font-bold cursor-pointer">
                     {item.quantity}
                   </span>
                   <Button
                     variant="ghost"
                     size="icon"
-                    className="h-8 w-8 hover:bg-gray-200"
+                    className="h-8 w-8 hover:bg-gray-200  cursor-pointer"
                     onClick={() =>
                       handleQuantityChange(item.id, item.quantity + 1)
                     }
@@ -138,7 +138,7 @@ export function CartModal({ isOpen, onClose }: CartModalProps) {
           {/* Checkout Button */}
           <Button
             asChild
-            className="w-full bg-orange-500 hover:bg-orange-600 text-white py-3"
+            className="w-full bg-orange-600 cursor-pointer hover:bg-orange-500 text-white py-3"
           >
             <Link href="/checkout">CHECKOUT</Link>
           </Button>

@@ -11,9 +11,9 @@ export const productImages = {
   
   // Category images
   export const categoryImages = {
-    headphones: "/images/categories/headphones-category.png",
-    speakers: "/images/categories/speakers-category.png",
-    earphones: "/images/categories/earphones-category.png",
+    headphones: "/images/category/headphones-category.png",
+    speakers: "/images/category/speakers-category.png",
+    earphones: "/images/category/earphones-category.png",
   }
   
   // Hero image (for homepage)
