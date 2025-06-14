@@ -36,7 +36,7 @@ export function CategoryGrid() {
                 alt={category.name}
                 width={100}
                 height={100}
-                className="drop-shadow-xl"
+                className="drop-shadow-[0_10px_10px_rgba(0,0,0,0.25)]"
               />
             </div>
             <h3 className="text-lg font-bold mt-6 mb-4 tracking-wider">
