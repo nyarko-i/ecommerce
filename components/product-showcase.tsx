@@ -5,25 +5,25 @@ import Image from "next/image";
 import { getProductBySlug } from "@/lib/utils/products";
 import { getProductImage } from "@/lib/utils/images";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 export function ProductShowcase() {
   const zx9Speaker = getProductBySlug("zx9-speaker");
   const zx7Speaker = getProductBySlug("zx7-speaker");
   const yx1Earphones = getProductBySlug("yx1-earphones");
 
-  // Debug logging
-  console.log("ProductShowcase Debug:", {
-    zx9Speaker: zx9Speaker?.slug,
-    zx7Speaker: zx7Speaker?.slug,
-    yx1Earphones: yx1Earphones?.slug,
-  });
-
   return (
     <section className="py-16 md:py-24">
       <div className="container mx-auto px-4 space-y-8">
         {/* ZX9 Speaker - Orange Section */}
         {zx9Speaker && (
-          <div className="bg-orange-500 text-white rounded-lg overflow-hidden">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="bg-orange-500 text-white rounded-lg overflow-hidden"
+          >
             <div className="flex flex-col lg:flex-row items-center p-8 lg:p-16">
               <div className="flex-1 mb-8 lg:mb-0">
                 <Image
@@ -56,46 +56,48 @@ export function ProductShowcase() {
                 </Button>
               </div>
             </div>
-          </div>
+          </motion.div>
         )}
 
-        {/* ZX7 Speaker - Gray Section */}
+        {/* ZX7 Speaker - Background Image with Text on Left */}
         {zx7Speaker && (
-          <div className="bg-gray-100 rounded-lg overflow-hidden">
-            <div className="flex flex-col md:flex-row">
-              <div className="flex-1">
-                <Image
-                  src={
-                    getProductImage(zx7Speaker.slug) ||
-                    "/placeholder.svg?height=300&width=500"
-                  }
-                  alt={zx7Speaker.name}
-                  width={500}
-                  height={300}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="flex-1 flex items-center p-8 lg:p-16">
-                <div>
-                  <h2 className="text-3xl font-bold mb-6">ZX7 SPEAKER</h2>
-                  <Button
-                    asChild
-                    variant="outline"
-                    className="border-black text-black hover:bg-black hover:text-white px-8 py-3"
-                  >
-                    <Link href={`/products/${zx7Speaker.slug}`}>
-                      SEE PRODUCT
-                    </Link>
-                  </Button>
-                </div>
-              </div>
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="relative bg-gray-100 rounded-lg overflow-hidden h-[320px] md:h-[400px] flex items-center"
+            style={{
+              backgroundImage: `url('${getProductImage(zx7Speaker.slug)}')`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          >
+            <div className="absolute inset-0 bg-black/20 z-0" />
+            <div className="relative z-10 px-6 md:px-16">
+              <h2 className="text-3xl font-bold mb-6 text-black">
+                ZX7 SPEAKER
+              </h2>
+              <Button
+                asChild
+                variant="outline"
+                className="border-black text-black hover:bg-black hover:text-white px-8 py-3"
+              >
+                <Link href={`/products/${zx7Speaker.slug}`}>SEE PRODUCT</Link>
+              </Button>
             </div>
-          </div>
+          </motion.div>
         )}
 
         {/* YX1 Earphones */}
         {yx1Earphones && (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="grid grid-cols-1 md:grid-cols-2 gap-8"
+          >
             <div className="bg-gray-100 rounded-lg overflow-hidden">
               <Image
                 src={
@@ -122,7 +124,7 @@ export function ProductShowcase() {
                 </Button>
               </div>
             </div>
-          </div>
+          </motion.div>
         )}
       </div>
     </section>

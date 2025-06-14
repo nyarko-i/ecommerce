@@ -13,7 +13,7 @@ import {
 import { getProductImage } from "@/lib/utils/images";
 import { formatPrice } from "@/lib/utils/products";
 
-// Import types directly to avoid module resolution issues
+// Types
 interface CartItem {
   id: number;
   product: {
@@ -50,7 +50,7 @@ export function OrderConfirmationModal({
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-md p-8">
+      <DialogContent className="sm:max-w-md p-8 bg-white text-black rounded-lg shadow-xl z-50">
         <DialogHeader>
           <DialogTitle className="sr-only">Order Confirmation</DialogTitle>
         </DialogHeader>

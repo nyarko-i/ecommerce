@@ -6,7 +6,8 @@ export function Footer() {
     <footer className="bg-black text-white p-4">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div className="lg:col-span-2">
+          {/* Logo + Description */}
+          <div className="lg:col-span-2 flex flex-col items-center md:items-start text-center md:text-left">
             <Link
               href="/"
               className="text-2xl font-bold tracking-wider mb-6 block"
@@ -21,7 +22,8 @@ export function Footer() {
             </p>
           </div>
 
-          <div>
+          {/* Navigation Links */}
+          <div className="flex flex-col items-center md:items-start text-center md:text-left">
             <nav className="flex flex-col space-y-4">
               <Link
                 href="/"
@@ -50,8 +52,9 @@ export function Footer() {
             </nav>
           </div>
 
-          <div className="flex flex-col justify-between">
-            <div className="flex space-x-4 mb-8 lg:mb-0 lg:justify-end">
+          {/* Social Icons */}
+          <div className="flex flex-col items-center md:items-end text-center md:text-right justify-between">
+            <div className="flex space-x-4 mb-8 lg:mb-0">
               <Link
                 href="#"
                 className="text-white hover:text-orange-500 transition-colors"
@@ -74,7 +77,8 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-gray-800 mt-12 pt-8">
+        {/* Copyright */}
+        <div className="border-t border-gray-800 mt-12 pt-8 text-center md:text-left">
           <p className="text-gray-400 text-sm">
             Copyright 2021. All Rights Reserved
           </p>

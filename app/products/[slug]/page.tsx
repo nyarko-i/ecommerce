@@ -8,6 +8,7 @@ import { CategoryGrid } from "@/components/category-grid";
 import { AboutSection } from "@/components/about-section";
 import { Footer } from "@/components/footer";
 import { getProductBySlug, getAllProducts } from "@/lib/utils/products";
+import FadeInWrapper from "./../../../components/fade-in-wrapper";
 
 interface ProductPageProps {
   params: Promise<{
@@ -53,12 +54,14 @@ export default async function ProductPage({ params }: ProductPageProps) {
     <div className="min-h-screen bg-white">
       <Header />
       <main>
-        <ProductHero product={product} />
-        <ProductFeatures product={product} />
-        <ProductGallery product={product} />
-        <ProductRecommendations product={product} />
-        <CategoryGrid />
-        <AboutSection />
+        <FadeInWrapper>
+          <ProductHero product={product} />
+          <ProductFeatures product={product} />
+          <ProductGallery product={product} />
+          <ProductRecommendations product={product} />
+          <CategoryGrid />
+          <AboutSection />
+        </FadeInWrapper>
       </main>
       <Footer />
     </div>

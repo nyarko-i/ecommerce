@@ -32,7 +32,7 @@ export function CartModal({ isOpen, onClose }: CartModalProps) {
   if (cart.items.length === 0) {
     return (
       <Dialog open={isOpen} onOpenChange={onClose}>
-        <DialogContent className="sm:max-w-md">
+        <DialogContent className="sm:max-w-md bg-white text-black rounded-lg shadow-xl z-50">
           <DialogHeader>
             <DialogTitle className="flex items-center justify-between">
               CART (0)
@@ -42,7 +42,7 @@ export function CartModal({ isOpen, onClose }: CartModalProps) {
             <p className="text-gray-600 mb-4">Your cart is empty</p>
             <Button
               onClick={onClose}
-              className="bg-orange-500 hover:bg-orange-600 cursor-pointer text-white"
+              className="bg-orange-500 hover:bg-orange-600 text-white"
             >
               Continue Shopping
             </Button>
@@ -54,14 +54,14 @@ export function CartModal({ isOpen, onClose }: CartModalProps) {
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-md max-h-[80vh] overflow-y-auto">
+      <DialogContent className="sm:max-w-md max-h-[80vh] overflow-y-auto bg-white text-black rounded-lg shadow-xl z-50">
         <DialogHeader>
           <DialogTitle className="flex items-center justify-between">
             CART ({cart.itemCount})
             <Button
               variant="ghost"
               onClick={clearCart}
-              className="text-sm text-gray-600 cursor-pointer hover:text-orange-500 underline p-0 h-auto font-normal"
+              className="text-sm text-gray-600 hover:text-orange-500 underline p-0 h-auto font-normal"
             >
               Remove all
             </Button>
@@ -104,20 +104,20 @@ export function CartModal({ isOpen, onClose }: CartModalProps) {
                   <Button
                     variant="ghost"
                     size="icon"
-                    className="h-8 w-8 hover:bg-gray-200 cursor-pointer"
+                    className="h-8 w-8 hover:bg-gray-200"
                     onClick={() =>
                       handleQuantityChange(item.id, item.quantity - 1)
                     }
                   >
                     <Minus className="h-3 w-3" />
                   </Button>
-                  <span className="w-8 text-center text-sm font-bold cursor-pointer">
+                  <span className="w-8 text-center text-sm font-bold">
                     {item.quantity}
                   </span>
                   <Button
                     variant="ghost"
                     size="icon"
-                    className="h-8 w-8 hover:bg-gray-200  cursor-pointer"
+                    className="h-8 w-8 hover:bg-gray-200"
                     onClick={() =>
                       handleQuantityChange(item.id, item.quantity + 1)
                     }
@@ -138,7 +138,7 @@ export function CartModal({ isOpen, onClose }: CartModalProps) {
           {/* Checkout Button */}
           <Button
             asChild
-            className="w-full bg-orange-600 cursor-pointer hover:bg-orange-500 text-white py-3"
+            className="w-full bg-orange-600 hover:bg-orange-500 text-white py-3"
           >
             <Link href="/checkout">CHECKOUT</Link>
           </Button>

@@ -9,12 +9,6 @@ import { heroImage } from "@/lib/utils/images";
 export function HeroSection() {
   const heroProduct = getProductBySlug("xx99-mark-two-headphones");
 
-  // Debug logging
-  console.log("HeroSection Debug:", {
-    heroProduct: heroProduct?.slug,
-    heroProductExists: !!heroProduct,
-  });
-
   if (!heroProduct) {
     console.error("Hero product not found!");
     return null;
@@ -23,29 +17,59 @@ export function HeroSection() {
   return (
     <section className="bg-black text-white">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col lg:flex-row items-center min-h-[500px] lg:min-h-[600px]">
-          <div className="flex-1 text-center lg:text-left py-12 lg:py-0">
+        {/* MOBILE VIEW: background image layout */}
+        <div
+          className="lg:hidden relative h-[550px] flex items-center justify-center text-center px-4 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `url('/images/hero/headphones-hero.png')`,
+          }}
+        >
+          <div className="absolute inset-0 bg-black bg-opacity-70 z-0" />
+          <div className="relative z-10 flex flex-col items-center justify-center">
             {heroProduct.new && (
               <p className="text-sm tracking-[10px] text-gray-400 mb-4">
                 NEW PRODUCT
               </p>
             )}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-              XX99 MARK II
-              <br />
-              HEADPHONES
+            <h1 className="text-4xl font-bold mb-6 leading-tight">
+              XX99 MARK II <br /> HEADPHONES
             </h1>
-            <p className="text-gray-300 mb-8 max-w-md mx-auto lg:mx-0 leading-relaxed">
+            <p className="text-gray-300 mb-8 max-w-sm leading-relaxed">
               {heroProduct.description}
             </p>
             <Button
               asChild
-              className="bg-orange-600 hover:bg-orange- cursor-pointer text-white px-8 py-3 text-sm font-medium tracking-wider"
+              className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-3 text-sm font-medium tracking-wider"
             >
               <Link href={`/products/${heroProduct.slug}`}>SEE PRODUCT</Link>
             </Button>
           </div>
-          <div className="flex-1 flex justify-center lg:justify-end">
+        </div>
+
+        {/* DESKTOP VIEW: original layout preserved */}
+        <div className="hidden lg:flex flex-row items-center min-h-[600px] py-16">
+          <div className="flex-1 text-left">
+            {heroProduct.new && (
+              <p className="text-sm tracking-[10px] text-gray-400 mb-4">
+                NEW PRODUCT
+              </p>
+            )}
+            <h1 className="text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+              XX99 MARK II
+              <br />
+              HEADPHONES
+            </h1>
+            <p className="text-gray-300 mb-8 max-w-md leading-relaxed">
+              {heroProduct.description}
+            </p>
+            <Button
+              asChild
+              className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-3 text-sm font-medium tracking-wider"
+            >
+              <Link href={`/products/${heroProduct.slug}`}>SEE PRODUCT</Link>
+            </Button>
+          </div>
+          <div className="flex-1 flex justify-center">
             <Image
               src={heroImage || "/placeholder.svg?height=400&width=400"}
               alt={heroProduct.name}
